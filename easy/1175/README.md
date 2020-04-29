@@ -21,7 +21,7 @@ Output: 682289015
 ## My Solutions:
 
 ### C++:
-```
+```cpp
 #define MAX_NUM 1000000007
 
 class Solution {
@@ -58,7 +58,7 @@ public:
 };
 ```
 ### Python 3:
-```
+```python
 class Solution:
     def fact(self, n: int) -> int:
         f = 1
