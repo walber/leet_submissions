@@ -19,67 +19,43 @@ Output: 1
 ```cpp
 class Solution {
 public:
-    int getSum(int a, int b) {
-        bool res_comp1 = false;
-	unsigned int carry, temp, result, one_comp1;
+	int bitwiseSum(int a, int b) {
+		unsigned int result, carry, temp;
 
-        if (a < 0 || b < 0) {
-            res_comp1 = true;
-            temp = (a < 0) ? a : b;
-            b = (temp == a) ? b : a;
+		result = a ^ b;
+		carry = a & b;
+		carry <<= 1;
 
-            one_comp1 = 1 ^ -1;
-            a = temp ^ one_comp1;
-            carry = temp & one_comp1;
-            carry <<= 1;
-        
-            while (carry != 0) {
-                temp = a ^ carry;
-                carry = a & carry;
-                carry <<= 1;
-                a = temp;
-	    }
-            
-            temp = a ^ 1;
-            carry = a & 1;
-            carry <<= 1;
-            a = temp;
+		while (carry != 0) {
+			temp = result ^ carry;
+			carry = result & carry;
+			carry <<= 1;
+			result = temp;
+		}
 
-            while (carry != 0) {
-                temp = a ^ carry;
-                carry = a & carry;
-                carry <<= 1;
-                a = temp;
-	    }
+		return result;
 	}
 
-        result = a ^ b;
-        carry = a & b;
-        carry <<= 1;
+	int getSum(int a, int b) {
+		bool res_comp1 = false;
+		unsigned int carry, result, temp;
 
-        while (carry != 0) {
-            temp = result ^ carry;
-            carry = result & carry;
-            carry <<= 1;
-            result = temp;
-        }
+		if (a < 0 || b < 0) {
+			res_comp1 = true;
+			temp = (a < 0) ? a : b;
+			b = (temp == a) ? b : a;
+			a = bitwiseSum(temp, 1 ^ -1);
+			a = bitwiseSum(a, 1);
+		}
 
-        if (res_comp1) {
-            temp = result ^ 1;
-            carry = result & 1;
-            carry <<= 1;
-            result = temp;
-              
-            while (carry != 0) {
-                temp = result ^ carry;
-                carry = result & carry;
-                carry <<= 1;
-                result = temp;
-	    }
+		result = bitwiseSum(a, b);
+
+		if (res_comp1) {
+			result = bitwiseSum(result, 1);
+		}
+
+		return result;
 	}
-
-        return result;
-    }
 };
 ```
 ### Python 3 (only positive numbers)
@@ -89,7 +65,7 @@ class Solution:
         result = a ^ b
         carry = (a & b) << 1
         
-        while carry > 0:
+        while carry != 0:
             carry = (result & carry) << 1
             result = result ^ carry
         
