@@ -6,20 +6,21 @@ class Solution:
 
         if K > 1:
             return "".join(sorted(S))
-
-        p = 0
+        
+        c = S[0]
+        k = 0
         for j in range(N):
-            if S[p] > S[j]:
-                p = j
+            if c > S[j]:
+                c = S[j]
+                k = j
 
-        k = p
-        for j in range(p, N):
-            if S[p] == S[k]:
-                s = S[k:] + S[0:k]
-                if S > s:
-                    S = s
-                    p = 0
-                    k = 0
+        s = S
+        for j in range(k, N):
+            if c == S[k]: 
+                S = S[k:] + S[0:k]
+                k = 0
+                if s > S:
+                    s = S
             k += 1
 
-        return S
+        return s

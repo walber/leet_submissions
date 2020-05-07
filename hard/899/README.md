@@ -33,8 +33,9 @@ S consists of lowercase letters only.
 class Solution {
 public:
     string orderlyQueue(string S, int K) {
-        int N, p, k;
+        int N, k;
         string s;
+        char c;
         N = S.size();
 
         if (K > 1) {
@@ -42,27 +43,27 @@ public:
             return S;
         }
 
-        p = 0;
-        for (int j = 0; j < N; j++) {
-            if (S[p] > S[j]) {
-                p = j;
+        c = S[0];
+        k = 0;
+        for (int j = 1; j < N; j++) {
+            if (c > S[j]) {
+                c = S[j];
+                k = j;
             }
         }
 
-        k = p;
-        for (int j = p; j < N; j++) {
-            if (S[p] == S[k]) {
-                s = S.substr(k) + S.substr(0, k);
-                if (lexicographical_compare(s.begin(), s.end(), S.begin(), S.end()) > 0) {
-                    S = s;
-                    p = 0;
-                    k = 0;
+        s = S;
+        for (int j = k; j < N; j++, k++) {
+            if (c == S[k]) {
+                S = S.substr(k) + S.substr(0, k);
+                k = 0;
+                if (lexicographical_compare(S.begin(), S.end(), s.begin(), s.end()) > 0) {
+                    s = S;
                 }
             }
-            k += 1;
         }
 
-        return S;
+        return s;
     }
 };
 ```
@@ -75,21 +76,22 @@ class Solution:
 
         if K > 1:
             return "".join(sorted(S))
-
-        p = 0
+        
+        c = S[0]
+        k = 0
         for j in range(N):
-            if S[p] > S[j]:
-                p = j
+            if c > S[j]:
+                c = S[j]
+                k = j
 
-        k = p
-        for j in range(p, N):
-            if S[p] == S[k]:
-                s = S[k:] + S[0:k]
-                if S > s:
-                    S = s
-                    p = 0
-                    k = 0
+        s = S
+        for j in range(k, N):
+            if c == S[k]: 
+                S = S[k:] + S[0:k]
+                k = 0
+                if s > S:
+                    s = S
             k += 1
 
-        return S
+        return s
 ```
