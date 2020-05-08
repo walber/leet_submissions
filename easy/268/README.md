@@ -19,13 +19,13 @@ Output: 8
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        int num_len = nums.size();
-        int out = 0;
+        int N = nums.size();
+        int out = N;
         
-        for (int i = 0; i <= num_len; i++)
-            out += i < num_len ? nums[i] - i : -i;
+        for (int i = 0; i < N; i++)
+            out -= nums[i] - i;
         
-        return -out;
+        return out;
     }
 };
 ```
@@ -33,11 +33,12 @@ public:
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        out = 0
-        nums_len = len(nums)
+
+        N = len(nums)
+        out = N
         
-        for i in range(nums_len + 1):
-            out += nums[i] - i if i < nums_len else -i
+        for i in range(N):
+            out -= nums[i] - i
         
-        return -out
+        return out
 ```
