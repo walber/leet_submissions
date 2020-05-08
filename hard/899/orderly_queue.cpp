@@ -12,16 +12,15 @@ public:
             return S;
         }
 
-        c = S[0];
         k = 0;
         for (int j = 1; j < N; j++) {
-            if (c > S[j]) {
-                c = S[j];
+            if (S[k] > S[j]) {
                 k = j;
             }
         }
 
         s = S;
+        c = S[k];
         for (int j = k; j < N; j++, k++) {
             if (c == S[k]) {
                 S = S.substr(k) + S.substr(0, k);

@@ -6,15 +6,14 @@ class Solution:
 
         if K > 1:
             return "".join(sorted(S))
-        
-        c = S[0]
+
         k = 0
-        for j in range(N):
-            if c > S[j]:
-                c = S[j]
+        for j in range(1, N):
+            if S[k] > S[j]:
                 k = j
 
         s = S
+        c = S[k]
         for j in range(k, N):
             if c == S[k]: 
                 S = S[k:] + S[0:k]
