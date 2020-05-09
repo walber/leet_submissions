@@ -1,4 +1,5 @@
 
+
 #define ABS(N) ((N<0) ? -N : N)
 
 class Solution {
@@ -14,7 +15,6 @@ public:
         for (int i = 0; i < N; i++) {
             if (nums[i] <= 0) {
                 nums[i] = nums[j];
-                nums[j] = -1;
                 j += 1;
             }
         }
@@ -22,7 +22,7 @@ public:
         for (int i = j; i < N; i++) {
             p = j + ABS(nums[i]) - 1;
             if (p < N) {
-                nums[p] = nums[p] < 0 ? nums[p] : -nums[p];
+                nums[p] = nums[p] <= 0 ? nums[p] : -nums[p];
             }
         }
 

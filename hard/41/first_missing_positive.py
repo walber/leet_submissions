@@ -1,4 +1,5 @@
 
+
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
 
@@ -8,13 +9,12 @@ class Solution:
         for i in range(N):
             if nums[i] <= 0:
                 nums[i] = nums[j]
-                nums[j] = -1
                 j += 1
         
         for i in range(j, N):
             p = j + abs(nums[i]) - 1
             if p < N:
-                nums[p] = -nums[p] if nums[p] > 0 else nums[p]
+                nums[p] = nums[p] if nums[p] <= 0 else -nums[p]
 
         m = 1
         for i in range(j, N):
@@ -23,4 +23,3 @@ class Solution:
             m += 1
         
         return m
-
