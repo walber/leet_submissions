@@ -1,5 +1,4 @@
-
-# Sum of Left Leaves
+# 404. Sum of Left Leaves
 
 #### Find the sum of all left leaves in a given binary tree.
 
