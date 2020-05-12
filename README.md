@@ -25,7 +25,7 @@
 \#	| Title	
 ------	| ------:
  0041 |	[First Missing Positive][0041] 
- 0899 |	[Orderly Queue][0889]
+ 0899 |	[Orderly Queue][0899]
 
 [0013]: ./easy/13
 [0118]: ./easy/118
