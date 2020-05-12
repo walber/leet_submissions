@@ -33,7 +33,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
 ```cpp
 class Solution {
 public:
-    void perform_rotate(vector<int>& nums, int s, int e) {
+    void perform_rotation(vector<int>& nums, int s, int e) {
 
         int temp;
         for (;s < e; s++, e--) {
@@ -47,9 +47,9 @@ public:
         
         int N = nums.size();
         k = k % N;
-        perform_rotate(nums, 0, N - 1);
-        perform_rotate(nums, 0, k - 1);
-        perform_rotate(nums, k, N - 1);       
+        perform_rotation(nums, 0, N - 1);
+        perform_rotation(nums, 0, k - 1);
+        perform_rotation(nums, k, N - 1);       
     }
 };
 ```
