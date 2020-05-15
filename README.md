@@ -10,6 +10,7 @@
  0268 |	[Missing Number][0268]
  0371 |	[Sum of Two Integers][0371]
  0404 |	[Sum of Left Leaves][0404]
+ 0443 |	[String Compression][0443]
  0661 |	[Image Smoother][0661]
  0704 |	[Binary Search][0704]
  1037 |	[Valid Boomerang][1037]
@@ -34,6 +35,7 @@
 [0268]: ./easy/268
 [0371]: ./easy/371
 [0404]: ./easy/404
+[0443]: ./easy/443
 [0661]: ./easy/661
 [0704]: ./easy/704
 [1037]: ./easy/1037
