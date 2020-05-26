@@ -5,6 +5,7 @@
 ------	| ------:
  0013 |	[Roman to Integer][0013]
  0118 |	[Pascal's Triangle][0118]
+ 0155 | [Min Stack][0155]
  0172 |	[Fractional Trailing Zeroes][0172]
  0189 |	[Rotate Array][0189]
  0268 |	[Missing Number][0268]
@@ -30,6 +31,7 @@
 
 [0013]: ./easy/13
 [0118]: ./easy/118
+[0155]: ./easy/155
 [0172]: ./easy/172
 [0189]: ./easy/189
 [0268]: ./easy/268
