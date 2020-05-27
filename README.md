@@ -14,6 +14,7 @@
  0443 |	[String Compression][0443]
  0661 |	[Image Smoother][0661]
  0704 |	[Binary Search][0704]
+ 0993 | [Cousins in Binary Tree][0993]
  1037 |	[Valid Boomerang][1037]
  1175 |	[Prime Arrangements][1175]
 
@@ -40,6 +41,7 @@
 [0443]: ./easy/443
 [0661]: ./easy/661
 [0704]: ./easy/704
+[0993]: ./easy/993
 [1037]: ./easy/1037
 [1175]: ./easy/1175
 
