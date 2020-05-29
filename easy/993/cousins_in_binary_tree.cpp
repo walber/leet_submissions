@@ -1,5 +1,5 @@
 
-#include <vector>
+#include <queue>
 
 /**
  * Definition for a binary tree node.
@@ -14,35 +14,34 @@
  */
 class Solution {
 public:
-    std::vector<TreeNode*> p_stack;
-    std::vector<TreeNode*> c_stack;
+    std::queue<TreeNode*> q;
     TreeNode *node, *n1, *n2;
     int found;
     
     bool isCousins(TreeNode* root, int x, int y) {
-        p_stack.push_back(root->left);
-        p_stack.push_back(root->right);
+        q.push(root->left);
+        q.push(root->right);
         
-        while (p_stack.size() > 0) {
+        while (!q.empty()) {
             found = 0;
 
-            while (p_stack.size() > 0) {
-                node = p_stack.back();
-                p_stack.pop_back();
+            for (int i = q.size(); i > 0; i--) {
+                node = q.front();
+                q.pop();
                 
                 if (node != NULL) {
-                    c_stack.push_back(node->left);
-                    c_stack.push_back(node->right);
+                    q.push(node->left);
+                    q.push(node->right);
                 }
             }
             
-            while (c_stack.size() > 0) {
-                n1 = c_stack.back();
-                c_stack.pop_back();
-                n2 = c_stack.back();
-                c_stack.pop_back();
-                p_stack.push_back(n1);
-                p_stack.push_back(n2);
+            for (int i = q.size()/2; i > 0; i--) {
+                n1 = q.front();
+                q.pop();
+                n2 = q.front();
+                q.pop();
+                q.push(n1);
+                q.push(n2);
                 
                 if (n1 != NULL and n2 != NULL) {
                     if (n1->val == x || n1->val == y) {
@@ -68,9 +67,8 @@ public:
                 return true;
             }
         }
-        
-        p_stack.clear();
-        c_stack.clear();
+
         return false;
     }
 };
+

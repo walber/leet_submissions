@@ -7,24 +7,23 @@
 #         self.right = right
 class Solution:
     def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
-        p_stack = [root.left, root.right]
-        c_stack = []
+        queue = [root.left, root.right]
 
-        while len(p_stack) > 0:
+        while len(queue) > 0:
             found = 0
 
-            while len(p_stack) > 0:
-                node = p_stack.pop()
+            for i in range(len(queue)):
+                node = queue.pop(0)
                 
                 if node:
-                    c_stack.append(node.left)
-                    c_stack.append(node.right)
+                    queue.append(node.right)
+                    queue.append(node.left)
 
-            while len(c_stack) > 0:
-                n1 = c_stack.pop()
-                n2 = c_stack.pop()
-                p_stack.append(n1)
-                p_stack.append(n2)
+            for i in range(len(queue)//2):
+                n1 = queue.pop(0)
+                n2 = queue.pop(0)
+                queue.append(n1)
+                queue.append(n2)
 
                 if n1 and n2:
                     if n1.val == x or n1.val == y:
@@ -41,4 +40,3 @@ class Solution:
                 return True
 
         return False
-        
