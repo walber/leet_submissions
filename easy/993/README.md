@@ -59,20 +59,20 @@ public:
                 q.push(n2);
                 
                 if (n1 != NULL and n2 != NULL) {
-                    if (n1->val == x || n1->val == y) {
+                    if (n1->val == x or n1->val == y) {
                         found += 1;
                     }
-                    else if (n2->val == x || n2->val == y) {
+                    else if (n2->val == x or n2->val == y) {
                         found += 1;
                     }
                 }
                 else if (n1 != NULL) {
-                    if (n1->val == x || n1->val == y) {
+                    if (n1->val == x or n1->val == y) {
                         found += 1;
                     }
                 }
                 else if (n2 != NULL) {
-                    if (n2->val == x || n2->val == y) {
+                    if (n2->val == x or n2->val == y) {
                         found += 1;
                     }
                 }
@@ -86,7 +86,6 @@ public:
         return false;
     }
 };
-
 ```
 ### Python 3:
 ```python
