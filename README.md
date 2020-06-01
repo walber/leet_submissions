@@ -23,7 +23,8 @@
 \#	| Title	
 ------	| ------:
  0074 |	[Search a 2D Matrix][0074] 
- 0513 |	[Find Bottom Left Tree Value][0513] 
+ 0513 |	[Find Bottom Left Tree Value][0513]
+ 1296 |	[Divide Array in Sets of K Consecutive Numbers][1296]
 
 ## Hard
 \#	| Title	
@@ -49,6 +50,7 @@
 
 [0074]: ./medium/74
 [0513]: ./medium/513
+[1296]: ./medium/1296
 
 [0041]: ./hard/41
 [0899]: ./hard/899
