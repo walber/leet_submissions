@@ -29,7 +29,8 @@
 ## Hard
 \#	| Title	
 ------	| ------:
- 0041 |	[First Missing Positive][0041] 
+ 0041 |	[First Missing Positive][0041]
+ 0057 | [Insert Interval][0057]
  0899 |	[Orderly Queue][0899]
 
 [0013]: ./easy/13
@@ -53,4 +54,5 @@
 [1296]: ./medium/1296
 
 [0041]: ./hard/41
+[0057]: ./hard/57
 [0899]: ./hard/899
