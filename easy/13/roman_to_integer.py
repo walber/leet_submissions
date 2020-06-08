@@ -8,12 +8,7 @@ class Solution:
 
         for i in range(1,len(s)):
             c = roman_d[s[i]]
-            
-            if p < c:
-                total += c - 2*p
-            else:
-                total += c
-            
+            total += c - (2 * p) if p < c else c
             p = c
         
         return total

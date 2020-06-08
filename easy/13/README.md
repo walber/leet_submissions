@@ -73,14 +73,7 @@ public:
         
         for (int i = 1; i < s.size(); i++) {
             c = roman_d[s[i]];
-            
-            if (p < c) {
-                total += c - 2 * p; 
-            }
-            else {
-                total += c;
-            }
-            
+            total += (p < c) ? c - (2 * p) : c; 
             p = c;
         }
         
@@ -88,7 +81,6 @@ public:
     }
 };
 ```
-
 ### Python 3:
 ```python
 class Solution:
@@ -100,12 +92,7 @@ class Solution:
 
         for i in range(1,len(s)):
             c = roman_d[s[i]]
-            
-            if p < c:
-                total += c - 2*p
-            else:
-                total += c
-            
+            total += c - (2 * p) if p < c else c
             p = c
         
         return total
