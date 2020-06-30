@@ -22,6 +22,7 @@
 ## Medium
 \#	| Title	
 ------	| ------:
+ 0048 | [Rotate Image][0048]
  0056 | [Merge Intervals][0056]
  0074 |	[Search a 2D Matrix][0074]
  0238 | [Product of Array Except Self][0238]
@@ -51,6 +52,7 @@
 [1037]: ./easy/1037
 [1175]: ./easy/1175
 
+[0048]: ./medium/48
 [0056]: ./medium/56
 [0074]: ./medium/74
 [0238]: ./medium/238
