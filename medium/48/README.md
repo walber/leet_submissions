@@ -46,26 +46,21 @@ rotate the input matrix in-place such that it becomes:
 
 ### C++:
 ```cpp
+#include <algorithm>
+
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
-        int i, j, t1, t2, t3, t4;
+        int i, j;
         i = 0;
         j = matrix.size() - 1;
         
         while (i < j) {
-            for (int p = 0; p < (j - i); p++) {
-                t1 = matrix[j - p][i];
-                t2 = matrix[j][j - p];
-                t3 = matrix[i + p][j];
-                t4 = matrix[i][i + p];
-                
-                matrix[i][i + p] = t1;
-                matrix[j - p][i] = t2;
-                matrix[j][j - p] = t3;
-                matrix[i + p][j] = t4;
+            for (int p = j - i; p > 0; p--) {
+                std::swap(matrix[i][i + p], matrix[j][j - p]);
+                std::swap(matrix[j][j - p], matrix[i + p][j]);
+                std::swap(matrix[i][i + p], matrix[j - p][i]);
             }
-            
             i++;
             j--;
         }
